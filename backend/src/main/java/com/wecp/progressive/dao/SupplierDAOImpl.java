@@ -13,12 +13,6 @@ import com.wecp.progressive.entity.Product;
 import com.wecp.progressive.entity.Supplier;
 
 public class SupplierDAOImpl implements SupplierDAO{
-
-<<<<<<< HEAD
-   
-
-=======
->>>>>>> 5c8d89c6463120f5e0fb4cca032c3f2d9893069b
     @Override
     public int addSupplier(Supplier supplier) throws SQLException{
        String query="Insert into supplier(supplier_name,username,password,email,phone,address,role)values(?,?,?,?,?,?,?)";
@@ -113,19 +107,8 @@ public class SupplierDAOImpl implements SupplierDAO{
        {
          ps.setString(1,supplier.getSupplierName() );
          ps.setString(2,supplier.getEmail());
-<<<<<<< HEAD
-=======
-        // ps.setString(3,supplier.getPassword());
-        //ps.setString(2,supplier.getEmail());
-        // ps.setString(5,supplier.getPhone());
-        // ps.setString(6,supplier.getAddress());
-        // ps.setString(7,supplier.getRole());
->>>>>>> 5c8d89c6463120f5e0fb4cca032c3f2d9893069b
         ps.setInt(3, supplier.getSupplierId());
         ps.executeUpdate();
        }
     }
-
-
-
 }

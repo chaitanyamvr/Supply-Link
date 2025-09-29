@@ -57,11 +57,11 @@ public class ShipmentController {
        return new ResponseEntity<>(shipmentServiceImpl.addShipment(shipment),HttpStatus.CREATED);
 
 
-    public ResponseEntity<Void> updateShipment(int shipmentId, Shipment shipment) {
-        return null;
-    }
+    // public ResponseEntity<Void> updateShipment(int shipmentId, Shipment shipment) {
+    //     return null;
+    // }
 
-    public ResponseEntity<Void> deleteShipment(int shipmentId) {
-        return null;
-    }
+    // public ResponseEntity<Void> deleteShipment(int shipmentId) {
+    //     return null;
+    // }
 }

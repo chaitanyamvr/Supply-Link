@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.wecp.progressive.entity.Supplier;
 import com.wecp.progressive.entity.Warehouse;
+import com.wecp.progressive.exception.NoWarehouseFoundForSupplierException;
 import com.wecp.progressive.repository.WarehouseRepository;
 import com.wecp.progressive.service.WarehouseService;
 @Service
@@ -45,7 +46,12 @@ public class WarehouseServiceImplJpa  implements WarehouseService{
 
     @Override
     public List<Warehouse> getWarehouseBySupplier(int supplierId) {
-       return warehouseRepository.findAllBySupplier_SupplierId(supplierId);
+       List<Warehouse> ans=warehouseRepository.findAllBySupplier_SupplierId(supplierId);
+       if(ans.isEmpty())
+       {
+        throw new NoWarehouseFoundForSupplierException("");
+       }
+       return ans;
     }
 
     @Override

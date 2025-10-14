@@ -1,0 +1,36 @@
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <h2>Product Management Form</h2>
+    <label>Product ID:</label>
+    <input formControlName="productId">
+
+    <label>Warehouse ID:</label>
+    <input formControlName="warehouseId">
+
+    <div *ngIf="productForm.get('warehouseId')?.invalid && productForm.get('warehouseId')?.touched">
+        <small *ngIf="productForm.get('warehouseId')?.errors?.['required']">Warehouse ID is required.</small>
+        <small *ngIf="productForm.get('warehouseId')?.errors?.['min']">Must be greater than 0.</small>
+    </div><br>
+
+    <label>Product Name:</label>
+    <input formControlName="productName">
+    <div *ngIf="productForm.get('productName')?.invalid && productForm.get('productName')?.touched">
+        <small>Product name is required</small>
+    </div>
+
+    <label>Product Description:</label>
+    <input formControlName="quantity">
+    <div *ngIf="productForm.get('quantity')?.invalid && productForm.get('quantity')?.touched">
+   <small *ngIf="productForm.get('quantity')?.errors?.['required']">Quantity is required.</small>
+   <small *ngIf="productForm.get('quantity')?.errors?.['min']">Must be non-negative.</small>
+    </div><br>
+
+    <label>Price:</label>
+    <input formControlName="price">
+    <div *ngIf="productForm.get('price')?.invalid && productForm.get('price')?.touched">
+        <small *ngIf="productForm.get('price')?.errors?.required">Price is required.</small>
+        <small *ngIf="productForm.get('price')?.errors?.min">Must be greater than 0.</small>
+    </div><br>
+
+    <button type="submit" [disabled]="productForm.invalid">Submit</button>
+
+</form>
